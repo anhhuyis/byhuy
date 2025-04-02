@@ -1,0 +1,12 @@
+ .radio-group label{
+    margin-right:50px;
+}
+  
+.form-label{
+    padding-right: 10px;
+}
+.model{
+    --bs-modal-width: 700px !important;
+}
+
+  

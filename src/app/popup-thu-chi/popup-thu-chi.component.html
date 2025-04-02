@@ -1,0 +1,52 @@
+<div class="modal-xl">
+  <div class="modal-header">
+    <h4 class="modal-title">{{"Thêm thu/chi cho khách hàng"|translate}} {{person.fullname}}</h4>
+  </div>
+  <div class="modal-body">
+    <form (ngSubmit)="onSubmit()" #form="ngForm">
+      <div class="mb-3 row">
+        <label for="type" class="col-sm-4 text-end">{{"Loại"|translate}}:</label>
+        <div class="col-sm-6">
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="type" id="thu" value="thu" [(ngModel)]="transactionType"
+              checked>
+            <label class="form-check-label" for="thu">{{"Thu"|translate}}</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="type" id="chi" value="chi" [(ngModel)]="transactionType">
+            <label class="form-check-label" for="chi">{{"Chi"|translate}}</label>
+          </div>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="balance" class="col-sm-4 text-end">{{"Số dư hiện tại"|translate}}:</label>
+        <div class="col-sm-5">
+          <span id="balance">{{ formatNumber(lang === 'vi' ? person.balance : person.balance / usd) }} {{ lang === 'vi'
+            ? 'VND' : 'USD' }}</span>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="amount" class="col-sm-4 col-form-label text-end">{{"Nhập số tiền"|translate}}:</label>
+        <p-fluid class="col-sm-6">
+          <div class="form-control">
+            <p-inputnumber type="number" name="amount" inputId="amount" [(ngModel)]="amount" />
+          </div>
+          <label class="form-text text-danger" *ngIf=" isSubmitted && amount == null">{{ '* Mời nhập số tiền' | translate }}</label>
+          <label class="form-text text-danger" *ngIf=" isSubmitted && amount !== null && amount < 0">{{ '* Số tiền phải lớn hơn 0' | translate }}</label>
+        </p-fluid>
+      </div>
+      <div class="mb-3 row">
+        <label for="reason" class="col-sm-4 col-form-label text-end">{{"Lý do"|translate}}:</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" id="reason" name="reason" [(ngModel)]="reason">
+          <label class="form-text text-danger" *ngIf="isSubmitted && reason.trim()==='' ">{{"* Mời nhập lý do"|translate}}</label>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark"
+      (click)="activeModal.dismiss('cancel')">{{"Hủy"|translate}}</button>
+    <button type="submit" class="btn btn-primary" (click)="confirmTransaction()">{{"Xác nhận"|translate}}</button>
+  </div>
+</div>

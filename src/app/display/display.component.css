@@ -1,0 +1,32 @@
+.container {
+  margin: 30px;
+  display: grid;
+  /* grid-template-columns: auto auto auto; */
+  gap: 10px;
+}
+  .header{
+    text-align: center;
+  }
+  .table {
+    width: 100%;
+  }
+  .table-responsive{
+    text-align: center;
+    margin: 20px 30px;
+  }
+  .btn {
+    margin: 5px;
+  }
+  .amount {
+    text-align: right;
+  }
+  .table-responsive{
+    margin-left: 1.5rem;
+  }
+  
+
+
+  
+  
+ 
+  

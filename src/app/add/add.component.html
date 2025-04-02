@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nhập thông tin cá nhân</title>
+</head>
+
+<body>
+  <app-home></app-home>
+  <div class="container">
+    <h1>Nhập thông tin cá nhân</h1>
+    <form [formGroup]="form">
+      <div class="form-group">
+        <label for="fullname">Họ tên:</label>
+        <input type="text" id="fullname" formControlName="fullname" />
+        <div class="message-required" *ngIf="submitted && f.fullname.errors" nzSize="large">
+          <div *ngIf="f.fullname.errors">
+
+            <small class="text-danger">&nbsp;Họ tên là bắt buộc.</small>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="ngaySinh">Ngày sinh:</label>
+        <input type="date" id="ngaySinh" formControlName="ngaySinh" />
+        <div class="message-required" *ngIf="submitted && f.ngaySinh.errors" nzSize="large">
+          <div *ngIf="f.ngaySinh">
+
+            <small class="text-danger">&nbsp;Ngày sinh là bắt buộc.</small>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="cccd">CCCD:</label>
+        <input type="text" id="cccd" formControlName="cccd" />
+        <div class="message-required" *ngIf="submitted && f.cccd.errors" nzSize="large">
+          <div
+            *ngIf=" f.cccd.errors.required || f.cccd.errors.pattern || f.cccd.errors.minlength || f.cccd.errors.maxlength">
+            <small class="text-danger">&nbsp;Số CMND không hợp lệ.</small>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="gioiTinh">Giới tính:</label>
+        <select id="gioiTinh" formControlName="gioiTinh">
+          <option value="Nam">Nam</option>
+          <option value="Nữ">Nữ</option>
+          <option value="Khác">Khác</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="diaChi">Địa Chỉ:</label>
+        <select id="diaChi" formControlName="diaChi">
+          <option value="Hà Nội">Hà Nội</option>
+          <option value="Nam Định">Nam Định</option>
+          <option value="Thái Bình">Thái Bình</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="fbWeb">Facebook/Trang web cá nhân:</label>
+        <input type="url" id="fbWeb" formControlName="fbWeb" />
+      </div>
+
+      <!-- <div class="form-group">
+        <label for="balance">balance:</label>
+        <input type="text" id="balance" formControlName="balance" />
+        <div class="message-required" *ngIf="submitted && f.balance.errors" nzSize="large">
+          <div
+            *ngIf=" f.balance.errors.required">
+            <small class="text-danger">&nbsp;nhập số dư.</small>
+          </div>
+          <div
+            *ngIf="f.balance.errors.pattern">
+            <small class="text-danger">&nbsp;nhập đúng định dạng số.</small>
+          </div>
+        </div>
+      </div> -->
+      <button type="submit" (click)="add()">Gửi</button>
+    </form>
+  </div>
+</body>
+
+</html>

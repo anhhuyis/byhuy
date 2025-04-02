@@ -1,0 +1,48 @@
+.navbar {
+    font-family: "Arial", sans-serif;
+    font-size: 15px;
+    background-color: #f8f9fa; /* Màu nền nhẹ */
+  }
+  
+  .navbar-brand {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  .nav-link {
+    color: #007bff; /* Màu chữ */
+    transition: color 0.3s ease;
+  }
+  
+  .nav-link:hover {
+    color: #0056b3; /* Đổi màu khi hover */
+  }
+  
+  .nav-link.active {
+    font-weight: bold;
+    color: #0056b3; /* Màu khi đang active */
+  }
+  
+  .navbar-toggler {
+    border: none;
+  }
+  
+  .container {
+    max-width: 1200px;
+  }
+  .navbar-light .navbar-brand {
+    color: rgba(13, 10, 70, 0.9);
+  }
+  .navbar-light .navbar-nav .nav-link.active,
+  .navbar-light .navbar-nav .show > .nav-link {
+    color: rgba(13, 10, 70, 0.9);
+  }
+  .navbar-light .navbar-nav .nav-link {
+    color: rgba(13, 10, 70, 0.9);
+  }
+  @media (min-width: 850px) {
+    .navbar-expand-lg {
+        flex-wrap: nowrap;
+        justify-content: space-around;
+    }
+}

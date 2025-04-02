@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chỉnh sửa thông tin cá nhân</title>
+  <style></style>
+</head>
+
+<body>
+  <app-home></app-home>
+  <div class="container">
+    <h1>Chỉnh sửa thông tin cá nhân</h1>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <label for="fullname">Họ Tên:</label>
+      <input id="fullname" formControlName="fullname" type="text" />
+
+      <label for="ngaySinh">Ngày Sinh:</label>
+      <input id="ngaySinh" formControlName="ngaySinh" type="date" />
+
+      <label for="cccd">Cccd:</label>
+      <input id="cccd" formControlName="cccd" type="number" />
+
+      <label for="gioiTinh">Giới Tính:</label>
+      <select id="gioiTinh" formControlName="gioiTinh">
+        <option value="Nam">Nam</option>
+        <option value="Nữ">Nữ</option>
+      </select>
+
+      <label for="diaChi">Địa Chỉ:</label>
+      <select id="diaChi" formControlName="diaChi">
+        <option value="Hà Nội">Hà Nội</option>
+        <option value="Nam Định">Nam Định</option>
+        <option value="Thái Bình">Thái Bình</option>
+      </select>
+
+      <label for="fbWeb">Facebook:</label>
+      <input id="fbWeb" formControlName="fbWeb" type="url" />
+      <br><br>
+      <button type="submit" [disabled]="form.invalid">Cập Nhật</button>
+    </form>
+  </div>
+</body>
+
+</html>
